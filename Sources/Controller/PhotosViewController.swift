@@ -307,6 +307,11 @@ extension PhotosViewController {
             // Call selection closure
             selectionClosure?(asset)
         } else if assetStore.count >= settings.maxNumberOfSelections {
+            let alertController = UIAlertController(title: "", message: "最多可选择9张图片", preferredStyle: UIAlertController.Style.alert)
+            let alertView = UIAlertAction(title: "确定", style: UIAlertAction.Style.default) { (UIAlertAction) -> Void in
+            }
+            alertController.addAction(alertView)
+            self.present(alertController, animated: true, completion: nil)
             selectLimitReachedClosure?(assetStore.count)
         }
 
